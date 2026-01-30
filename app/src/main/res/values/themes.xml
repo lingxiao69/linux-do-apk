@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.LinuxDoApp" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 状态栏和导航栏颜色，模拟网站深色风格 -->
+        <item name="android:statusBarColor">#1a1a2e</item>
+        <item name="android:navigationBarColor">#1a1a2e</item>
+        <!-- 启动时的窗口背景，避免白屏 -->
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+</resources>

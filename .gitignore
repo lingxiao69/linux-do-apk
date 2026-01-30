@@ -1,0 +1,35 @@
+# Android Studio
+*.iml
+.gradle/
+.idea/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# Keystore / 签名密钥（重要！）
+*.jks
+*.keystore
+apk/key
+key
+key.*
+
+# APK 文件
+*.apk
+apk/
+app/release/
+
+# ProGuard
+proguard/
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Gradle cache
+.gradle/

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- 简洁的 L 字母图标 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,30 L40,70 L68,70 L68,60 L52,60 L52,30 Z"/>
+    
+</vector>
