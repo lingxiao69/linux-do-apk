@@ -81,6 +81,9 @@ class MainActivity : AppCompatActivity() {
             // Viewport settings
             useWideViewPort = true
             loadWithOverviewMode = true
+            
+            // Text size - reduce for more compact display
+            textZoom = 85  // 85% of default, shows more content per screen
 
             // Zoom controls
             setSupportZoom(true)
@@ -112,6 +115,61 @@ class MainActivity : AppCompatActivity() {
                 swipeRefresh.isRefreshing = false
                 // Persist cookies after page load
                 CookieManager.getInstance().flush()
+                
+                // Inject CSS to enhance mobile UI
+                val css = """
+                    /* 更紧凑的帖子列表 */
+                    .topic-list-item { 
+                        padding: 6px 0 !important; 
+                        border-bottom: 1px solid #eee !important;
+                    }
+                    .topic-list .topic-list-data {
+                        padding: 4px 5px !important;
+                    }
+                    
+                    /* 标题样式优化 */
+                    .topic-list-item .title {
+                        font-size: 15px !important;
+                        font-weight: 600 !important;
+                        line-height: 1.3 !important;
+                    }
+                    
+                    /* 分类标签更紧凑 */
+                    .badge-category, .category-name {
+                        font-size: 11px !important;
+                        padding: 1px 4px !important;
+                    }
+                    .discourse-tag {
+                        font-size: 11px !important;
+                        padding: 1px 4px !important;
+                        margin: 1px !important;
+                    }
+                    
+                    /* 强制显示回复数和浏览量 */
+                    .topic-list .posts, .topic-list .views, .topic-list .activity {
+                        display: table-cell !important;
+                        font-size: 12px !important;
+                        color: #666 !important;
+                    }
+                    
+                    /* 头像更小 */
+                    .avatar {
+                        width: 24px !important;
+                        height: 24px !important;
+                    }
+                    
+                    /* 公告横幅更紧凑 */
+                    .alert {
+                        padding: 6px 10px !important;
+                        font-size: 13px !important;
+                    }
+                """.trimIndent()
+                val js = "javascript:(function(){" +
+                        "var style = document.createElement('style');" +
+                        "style.innerHTML = '${css.replace("\n", " ").replace("'", "\\'")}'; " +
+                        "document.head.appendChild(style);" +
+                        "})()"
+                view?.loadUrl(js)
             }
         }
 
